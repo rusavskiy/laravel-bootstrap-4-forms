@@ -307,6 +307,20 @@ class FormService
     }
 
     /**
+     * Create a number input
+     *
+     * @param string $name
+     * @param string $label
+     * @param string $default
+     *
+     * @return \NetoJose\Bootstrap4Forms\FormService
+     */
+    public function number(string $name = null, $label = null, string $default = null): FormService
+    {
+        return $this->type('number')->name($name)->label($label)->value($default);
+    }
+
+    /**
      * Create a hidden input
      *
      * @param string $name
