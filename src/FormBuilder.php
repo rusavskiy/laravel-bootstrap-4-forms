@@ -643,7 +643,7 @@ class FormBuilder
      */
     private function _getValue()
     {
-        $name = $this->_name;
+        $name = $this->replaceName();
 
         if ($this->_hasOldInput()) {
             return old($name);
@@ -831,7 +831,7 @@ class FormBuilder
         if (!$errors) {
             return null;
         }
-        $error = $errors->first($this->_name);
+        $error = $errors->first($this->replaceName());
 
         if (!$error) {
             return null;
@@ -880,5 +880,10 @@ class FormBuilder
         $this->_Fmultipart = false;
         $this->_Fdata = null;
         $this->_FidPrefix = '';
+    }
+
+    private function replaceName(): string
+    {
+        return trim(preg_replace('~[^\w]+~', '.', $this->_name), '.');
     }
 }
