@@ -536,9 +536,7 @@ class FormBuilder
 
         if ($label) {
             $id = $this->_getId();
-            $result = '<label for="' . $id . '" class="col-lg-2 control-label text-lg-right">' . $this->_e(
-                    $label
-                ) . '</label>';
+            $result = '<label for="' . $id . '" class="control-label">' . $this->_e($label) . '</label>';
         }
 
         return $result;
@@ -804,16 +802,23 @@ class FormBuilder
         $this->_resetFlags();
 
         if (!$inline) {
-            return '<div class="form-group row">'
+
+            return '<div class="form-group row"><div class="col-2 col-md-3 col-lg-2 text-lg-right">'
                 . $label
-                . '<div class="col-lg-10">'
+                . '</div><div class="col-md-9 col-lg-10">'
                 . $field
                 . $help
                 . $error
                 . '</div></div>';
         }
 
-        return '<div class="form-group "><div class="col col-md-3  col-lg-2">' . $label . '</div><div class="col-12 col-md-9  col-lg-10">' . $field . $help . $error . '</div></div>';
+        return '<div class="form-group row"><div class="col">'
+            . $label
+            . '</div><div class="col-lg-12">'
+            . $field
+            . $help
+            . $error
+            . '</div></div>';
     }
 
     /**
@@ -845,7 +850,6 @@ class FormBuilder
      */
     private function _resetFlags(): void
     {
-
         $this->_render = null;
         $this->_meta = [];
         $this->_attrs = [];
@@ -874,7 +878,6 @@ class FormBuilder
      */
     private function _resetFormFlags(): void
     {
-
         $this->_Flocale = null;
         $this->_Fmethod = 'post';
         $this->_Fmultipart = false;

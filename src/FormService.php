@@ -203,19 +203,19 @@ class FormService
      *
      * @return \NetoJose\Bootstrap4Forms\FormService
      */
-    public function inline(bool $inline = true): FormService
+    public function inlineCheck(bool $inline = true): FormService
     {
         return $this->_set('checkInline', $inline);
     }
 
     /**
-     * Set inline style for all inputs
+     * Set inline style for input
      *
      * @param bool $inline
      *
      * @return \NetoJose\Bootstrap4Forms\FormService
      */
-    public function inlineForm(bool $inline = true): FormService
+    public function inlineField(bool $inline = true): FormService
     {
         return $this->_set('checkInlineForm', $inline);
     }
